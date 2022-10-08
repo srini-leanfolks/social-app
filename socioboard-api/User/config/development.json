@@ -152,9 +152,9 @@
       "host_url": "https://notifyv5.socioboard.com"
     },
     "twilio": {
-      "account_sid": "ACc11cdacce9e7254023d95e70dd8f85d5",
-      "auth_key": "fdfd664e2e70fed2bfb68fe145d080cf",
-      "service_id": "VA41ca451f7b1aa5ab5f7a5ff02ce132c1"
+      "account_sid": "",
+      "auth_key": "",
+      "service_id": ""
     }
   }
   
