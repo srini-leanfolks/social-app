@@ -1,0 +1,291 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "5.0",
+    "title": "SB Notification Service",
+    "description": "Documentation"
+  },
+  "host": "localhost:3004",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Notification",
+      "description": "Endpoints"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "securityDefinitions": {
+    "AccessToken": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-access-token",
+      "description": "Please provide the valid access token, if you dont have please login and get the token as response!"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/notify/sendTeamNotification": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "notificationDetails",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "teamId",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/sendUserNotification": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "notificationDetails",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/get-user-notification": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To get user notification of a team",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/get-team-notification": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To get notification for entire team",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/update-notification-status": {
+      "put": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To update notification status",
+        "parameters": [
+          {
+            "name": "mongoId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/mark-all-user-notifications-as-read": {
+      "put": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To mark All User Notifications as Read",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/mark-all-team-notifications-as-read": {
+      "put": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To mark All Team Notifications as Read",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/delete-particular-notification": {
+      "delete": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To delete Particular Notification",
+        "parameters": [
+          {
+            "name": "mongoId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/clear-all-user-notifications": {
+      "delete": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To delete all Notification",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/clear-all-team-notifications": {
+      "delete": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To delete all Notification",
+        "parameters": [
+          {
+            "name": "teamId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/get-user-notification-status": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To Get Notification status",
+        "parameters": [
+          {
+            "name": "userIds",
+            "in": "body",
+            "description": "User ids",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userIds"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/v1/notify/get-team-notification-status": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "description": " To Get Notification status",
+        "parameters": [
+          {
+            "name": "teamIds",
+            "in": "body",
+            "description": "User ids",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/teamIds"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    }
+  },
+  "definitions": {
+    "userIds": {
+      "type": "object",
+      "properties": {
+        "userIds": {
+          "type": "array",
+          "example": [
+            1,
+            1
+          ],
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "teamIds": {
+      "type": "object",
+      "properties": {
+        "teamIds": {
+          "type": "array",
+          "example": [
+            1
+          ],
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

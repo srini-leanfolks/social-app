@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 7
+    },
+    "auditLog": "E:\\SOCIOBOARD5.0\\socioboard5.0\\BackEnd\\Update\\resources\\Log\\ResponseLog/.audit.json",
+    "files": [
+        {
+            "date": 1665226903327,
+            "name": "/Users/leanfolks/Desktop/Socioboard-5.0/socioboard-api/Update/resources/log/ResponseLog/2022-10-08-logs.log",
+            "hash": "79e4de5e6ec9108e6cc98286027a2efc"
+        }
+    ]
+}
