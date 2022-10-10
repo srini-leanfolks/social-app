@@ -21,14 +21,14 @@ import MongoConnect from './resources/database/mongo.database.js';
 import DbConnect from './resources/database/mysql.database.js';
 import Routes from './resources/routes/public.routes.js';
 
-import Logger from './resources/log/logger.log.js';
+import Logger from './resources/Log/logger.log.js';
 
 if (process.env.IS_DEBUGGING) console.log(__filename);
 const swaggerFile = JSON.parse(
   fs.readFileSync('./resources/views/swagger-api-view.json', 'utf-8')
 );
 const __dirname = path.resolve();
-const logDir = `${__dirname}/resources/log/ResponseLog`;
+const logDir = `${__dirname}/resources/Log/ResponseLog`;
 
 const app = express();
 const server = Server.Server(app);
@@ -45,7 +45,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json({limit: '100mb'}));
 app.use(express.static('public'));
 app.use(express.static('../../media'));
-app.use(express.static('./resources/log/ResponseLog'));
+app.use(express.static('./resources/Log/ResponseLog'));
 app.use(cookieParser());
 app.use(express.json());
 app.use(bodyParser.json());
